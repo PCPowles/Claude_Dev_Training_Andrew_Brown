@@ -1,0 +1,24 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment Variables
+.env
+
+
+# For GIT 20261002
+   @"
+   .venv/
+   venv/
+   __pycache__/
+   *.pyc
+   .env
+   .vscode/
+   "@ | Out-File -Encoding utf8 .gitignore
