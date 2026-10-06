@@ -1,0 +1,39 @@
+How do I create new virtual environment in this folder?
+4:15 PM
+In a terminal opened in this folder (c:\dev\Claude_Dev_Training_Andrew_Brown\batch_processing):
+
+1. Create the virtual environment
+
+
+python -m venv .venv
+This creates a .venv folder next to main.py. If python isn't found, try py -m venv .venv.
+
+2. Activate it
+
+
+.\.venv\Scripts\Activate.ps1
+Once it's active, your prompt will start with (.venv).
+
+If PowerShell says "running scripts is disabled on this system", allow scripts for your user account once, then activate again:
+
+
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+Command Prompt and Git Bash use different activation commands:
+
+Command Prompt: .venv\Scripts\activate.bat
+Git Bash: source .venv/Scripts/activate
+3. Install your packages
+Your scripts use the Anthropic SDK, so install it inside the venv:
+
+
+pip install anthropic
+pip freeze > requirements.txt   # optional: records the installed versions
+4. Tell VS Code to use it
+Press Ctrl+Shift+P, choose Python: Select Interpreter, and pick .\.venv\Scripts\python.exe.
+
+5. Keep it out of git
+This folder is in a git repo, so add .venv/ to your .gitignore to avoid committing the whole environment.
+
+To leave the venv, run deactivate.
+
+I can run steps 1–3 for you and add the .gitignore entry if you'd like.
