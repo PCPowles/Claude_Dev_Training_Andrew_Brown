@@ -1,0 +1,28 @@
+GitHub_Simple_Upload
+======================
+You don't need to create the batch_processing folder on GitHub yourself. Your local batch_processing folder is already inside the repo that's linked to github.com/PCPowles/Claude_Dev_Training_Andrew_Brown. When you commit and push files from it, GitHub shows them in a batch_processing folder automatically.
+
+Steps in VS Code (Source Control panel, Ctrl+Shift+G):
+
+Stage the files. Under Changes, hover over each file you want to upload and click +. Your main.py is already staged. Add:
+
+.gitignore
+main_submit_check_run.py
+requirements.txt
+batch_id.txt and the batch_results_...jsonl.txt file, if you want those on GitHub too
+Leave CreateNewVirtualEnvironment.txt unstaged. It's in the repo root (C:\dev\Claude_Dev_Training_Andrew_Brown), not in batch_processing, so committing it would put it at the top level of the repo.
+
+Write a commit message, for example Add batch_processing scripts.
+
+Click Commit.
+
+Click Sync Changes, which appears in place of the Commit button. You can also use ⋯ → Push. This uploads the commit to GitHub.
+
+Refresh the GitHub page and a batch_processing folder will appear in the file list.
+
+Fix your .gitignore before committing: some PowerShell command text got pasted into batch_processing/.gitignore at the end. These are the lines starting with @", the indented entries, and "@ | Out-File .... Delete everything from # For GIT 20261002 down, and add one line, .vscode/, since the leftover text was trying to ignore that folder. The top part already covers .venv and __pycache__, which is why neither shows in your Changes list.
+
+Security note: the repo is Public, so anyone can see what you push. Your scripts don't contain an API key, which is good. Don't commit a .env file or hard-code your ANTHROPIC_API_KEY.
+
+
+
